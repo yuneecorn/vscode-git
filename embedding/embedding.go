@@ -13,6 +13,23 @@ type Person struct { // 사람 구조체 정의
 	age  int
 }
 
+func (p *Person) greeting() { // 인사(greeting) 함수 작성
+	fmt.Println("Hello~")
+}
+
+type Student1 struct {
+	p      Person // 학생 구조체 안에 사람 구조체를 필드로 가지고 있음. Has-a 관계
+	school string
+	grade  int
+}
+
+type Student2 struct {
+	Person // 필드명 없이 타입만 선언하면 포함(Is-a) 관계가 됨
+	//구조체 임베딩을 할 때 필드명을 사용하지 않는 필드를 익명 필드(anonymous field)라고 합니다.
+	school string
+	grade  int
+}
+
 type Student3 struct {
 	Person //Inherit by embedding the struct by value
 	school string
